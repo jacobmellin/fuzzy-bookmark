@@ -1,0 +1,26 @@
+ {
+    "manifest_version": 3,
+    "name": "Fuzzy Bookmark",
+    "version": "1.0",
+    "description": "Add bookmarks to your bookmarks folders using fuzzy search",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "commands": {
+        "add-bookmark": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "Command+Shift+F"
+            },
+            "description": "Add bookmark"
+        }
+    },
+    "_execute_action": {
+        "suggested_key": {
+            "windows": "Ctrl+Shift+F",
+            "mac": "Command+Shift+F",
+            "chromeos": "Ctrl+Shift+F",
+            "linux": "Ctrl+Shift+F"
+        }
+    }
+ }
