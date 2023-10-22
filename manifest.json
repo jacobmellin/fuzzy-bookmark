@@ -22,5 +22,14 @@
             "chromeos": "Ctrl+Shift+F",
             "linux": "Ctrl+Shift+F"
         }
-    }
+    },
+    "background": {
+        "service_worker": "src/background.ts"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*/*", "http://*/*"],
+            "js": ["src/overlay/index.tsx"]
+        }
+    ]
  }
