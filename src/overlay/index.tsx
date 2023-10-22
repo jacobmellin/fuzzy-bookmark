@@ -1,10 +1,21 @@
 import { render } from 'solid-js/web'
+import { createSignal } from 'solid-js';
 
-import './index.css'
-import App from '../popup/App'
+import Wrapper from './Wrapper';
+import AddBookmark from './AddBookmark';
 
-const root = document.createElement('div');
-root.id = 'fuzzy-bookmark-root';
-document.body.appendChild(root)
+const [visible, setVisible] = createSignal(false);
 
-render(() => <App />, root!)
+chrome.runtime.onMessage.addListener((message) => {
+    if(message.hasOwnProperty('command')
+        && message.command === 'add-bookmark') {
+        setVisible(!visible());
+    }
+});
+
+setVisible(false);
+
+const root = document.getElementById('root');
+console.log('in ifrmae');
+
+ render(() => <Wrapper visible={visible()} children={AddBookmark} />, root!)
