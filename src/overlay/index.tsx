@@ -1,7 +1,6 @@
 import { render } from 'solid-js/web'
 import { createSignal } from 'solid-js';
 
-import Wrapper from './Wrapper';
 import AddBookmark from './AddBookmark';
 
 const [visible, setVisible] = createSignal(false);
@@ -16,6 +15,5 @@ chrome.runtime.onMessage.addListener((message) => {
 setVisible(false);
 
 const root = document.getElementById('root');
-console.log('in ifrmae');
 
- render(() => <Wrapper visible={visible()} children={AddBookmark} />, root!)
+ render(() => <AddBookmark />, root!)
